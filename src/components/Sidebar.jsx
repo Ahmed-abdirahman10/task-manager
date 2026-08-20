@@ -73,7 +73,7 @@ function Sidebar({ open, onClose }) {
       <aside
         ref={asideRef}
         className={`fixed inset-y-0 left-0 z-50 flex h-screen w-72 max-w-[80%] flex-col border-r border-slate-800 bg-slate-950 px-4 py-6 text-white transition-transform duration-300 ease-in-out
-        lg:sticky lg:top-0 lg:z-30 lg:w-64 lg:max-w-none lg:translate-x-0
+        lg:sticky lg:top-0 lg:z-30 lg:h-auto lg:min-h-screen lg:w-64 lg:max-w-none lg:translate-x-0 lg:self-stretch
         ${open ? "translate-x-0" : "-translate-x-full"}`}
       >
         {/* Logo */}
