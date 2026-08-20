@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+* {
+  font-family: Poppins, sans-serif;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+@layer components {
+  .input {
+        @apply border border-slate-300 py-3 px-5 rounded-xl outline-none focus:border-slate-500 focus:ring-4 focus:ring-blue-500/20 placeholder:text-slate-400
+  }
+}
