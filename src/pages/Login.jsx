@@ -105,12 +105,60 @@ const Login = ({ onLoginSuccess }) => {
           {/* Decorative blobs */}
           <div className="pointer-events-none absolute -right-16 -top-16 h-64 w-64 rounded-full bg-white/10 blur-2xl" />
           <div className="pointer-events-none absolute -bottom-24 -left-10 h-72 w-72 rounded-full bg-black/10 blur-2xl" />
+
+          {/* Illustration — person checking their phone, flat / geometric style
+              so there's no dependency on an external image file */}
           <svg
-            className="pointer-events-none absolute bottom-0 right-0 h-2/3 w-2/3 opacity-20"
-            viewBox="0 0 200 200"
+            className="pointer-events-none absolute -bottom-6 right-0 h-[85%] w-[85%] opacity-90"
+            viewBox="0 0 320 320"
             fill="none"
+            aria-hidden="true"
           >
-            <circle cx="140" cy="160" r="90" fill="white" />
+            <circle cx="180" cy="230" r="120" fill="white" fillOpacity="0.07" />
+
+            {/* Ground shadow */}
+            <ellipse cx="185" cy="300" rx="70" ry="10" fill="black" fillOpacity="0.12" />
+
+            {/* Body */}
+            <path
+              d="M120 300 L128 190 C130 165 155 150 182 150 C209 150 232 168 234 193 L242 300 Z"
+              fill="white"
+              fillOpacity="0.22"
+            />
+
+            {/* Head */}
+            <circle cx="183" cy="112" r="34" fill="white" fillOpacity="0.28" />
+
+            {/* Arm holding phone */}
+            <path
+              d="M150 205 C138 215 130 232 132 250 L150 258 C153 236 160 222 170 210 Z"
+              fill="white"
+              fillOpacity="0.22"
+            />
+
+            {/* Phone */}
+            <rect
+              x="118"
+              y="244"
+              width="34"
+              height="54"
+              rx="6"
+              fill="white"
+              fillOpacity="0.85"
+            />
+            <rect
+              x="123"
+              y="251"
+              width="24"
+              height="34"
+              rx="2"
+              fill="#059669"
+            />
+
+            {/* Coin / payment accents */}
+            <circle cx="256" cy="150" r="16" fill="white" fillOpacity="0.5" />
+            <circle cx="272" cy="180" r="9" fill="white" fillOpacity="0.35" />
+            <circle cx="80" cy="150" r="10" fill="white" fillOpacity="0.3" />
           </svg>
 
           <div className="relative z-10">
@@ -134,8 +182,23 @@ const Login = ({ onLoginSuccess }) => {
         </div>
 
         {/* Right panel — the actual form */}
-        <div className="flex w-full flex-col justify-center p-6 sm:p-10 md:w-1/2 lg:p-16">
-          <div className="mx-auto w-full max-w-sm">
+        <div className="relative flex w-full flex-col justify-center overflow-hidden p-6 sm:p-10 md:w-1/2 lg:p-16">
+
+          {/* Decorative background accents so this side doesn't read as bare white */}
+          <div className="pointer-events-none absolute -right-20 -top-20 h-56 w-56 rounded-full bg-emerald-50 blur-2xl" />
+          <div className="pointer-events-none absolute -bottom-16 -left-16 h-48 w-48 rounded-full bg-slate-50 blur-2xl" />
+
+          <svg
+            className="pointer-events-none absolute bottom-6 right-6 h-28 w-28 opacity-[0.06]"
+            viewBox="0 0 100 100"
+            fill="none"
+            aria-hidden="true"
+          >
+            <rect x="10" y="30" width="80" height="50" rx="8" fill="#059669" />
+            <rect x="10" y="42" width="80" height="10" fill="white" />
+          </svg>
+
+          <div className="relative z-10 mx-auto w-full max-w-sm">
 
             {/* Mobile-only brand mark since the left panel is hidden below md */}
             <div className="mb-6 flex items-center gap-2 md:hidden">
@@ -144,9 +207,15 @@ const Login = ({ onLoginSuccess }) => {
               </span>
             </div>
 
+            {/* Badge icon */}
+            <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-50">
+              <TrendingUp size={22} className="text-emerald-600" />
+            </div>
+
             <h2 className="text-2xl font-bold text-slate-900">
               {mode === "login" ? "Log In" : "Create Account"}
             </h2>
+
 
             {success && (
               <div className="mt-4 rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-700">
