@@ -140,7 +140,7 @@ const Login = ({ onLoginSuccess }) => {
             {/* Mobile-only brand mark since the left panel is hidden below md */}
             <div className="mb-6 flex items-center gap-2 md:hidden">
               <span className="text-lg font-bold italic text-emerald-600">
-                Task Manager 
+                Payyed
               </span>
             </div>
 
