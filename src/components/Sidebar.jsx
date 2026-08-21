@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import {
   LayoutDashboard,
   CheckSquare,
@@ -28,6 +28,14 @@ const links = [
 
 function Sidebar({ open, onClose }) {
   const asideRef = useRef(null);
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    // Swap this for real auth teardown once a backend is wired up
+    // (e.g. clearing the auth token / calling a /logout endpoint).
+    onClose?.();
+    navigate("/login");
+  };
 
   // Close on outside click (mobile drawer only)
   useEffect(() => {
@@ -131,7 +139,10 @@ function Sidebar({ open, onClose }) {
         {/* Bottom */}
         <div className="border-t border-slate-800 pt-4">
           {/* Logout */}
-          <button className="flex w-full items-center gap-3 rounded-xl px-3 py-3 text-sm font-medium text-slate-400 transition hover:bg-slate-900 hover:text-white cursor-pointer">
+          <button
+            onClick={handleLogout}
+            className="flex w-full items-center gap-3 rounded-xl px-3 py-3 text-sm font-medium text-slate-400 transition hover:bg-slate-900 hover:text-white cursor-pointer"
+          >
             <LogOut size={20} />
             <span>Logout</span>
           </button>
